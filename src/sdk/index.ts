@@ -255,3 +255,5 @@ export class TurnstileChallenge implements ChallengeController {
 export function initChallenge(options: ChallengeOptions): TurnstileChallenge {
   return new TurnstileChallenge(options);
 }
+
+export type { ChallengeOptions, ChallengeController, TelemetryEvent } from './types.js';
