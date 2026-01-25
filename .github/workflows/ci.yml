@@ -26,10 +26,10 @@ jobs:
         run: bun test
 
       - name: Lint
-        run: bunx eslint src tests --ext .ts,.tsx || exit 0
+        run: bunx eslint src tests --ext .ts,.tsx
 
       - name: Format check
-        run: bunx prettier --check "src/**/*.{ts,tsx,json,css}" "tests/**/*.{ts,tsx}" || exit 0
+        run: bunx prettier --check "src/**/*.{ts,tsx,json,css}" "tests/**/*.{ts,tsx}" || true
 
       - name: Build
         run: bun run build
