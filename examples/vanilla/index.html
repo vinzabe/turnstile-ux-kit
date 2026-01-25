@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnstile UX Kit - Vanilla JS Example</title>
+  <link rel="stylesheet" href="../dist/styles/light.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-background text-text">
+  <div class="container mx-auto px-4 py-8">
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold mb-2">Turnstile UX Kit - Vanilla JS Example</h1>
+      <p class="text-muted">A demonstration of the Turnstile UX Kit</p>
+    </header>
+
+    <main class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Inline Widget</h2>
+        <div class="max-w-md">
+          <div class="bg-surface rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold mb-2">Verify You're Human</h3>
+            <p class="text-muted mb-4">Please complete the verification below to continue</p>
+            <div id="turnstile-widget"></div>
+            <div id="token-display" class="mt-4 p-4 bg-background rounded border border-muted/30 hidden">
+              <p class="text-sm font-semibold mb-2">Token Received:</p>
+              <code class="block p-2 bg-muted/20 rounded text-sm break-all" id="token-text"></code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Theme Switcher</h2>
+        <div class="flex gap-4 mb-4">
+          <button onclick="setTheme('light')" class="px-4 py-2 bg-brand text-white rounded hover:bg-brand-hover">Light</button>
+          <button onclick="setTheme('dark')" class="px-4 py-2 bg-brand text-white rounded hover:bg-brand-hover">Dark</button>
+          <button onclick="setTheme('auto')" class="px-4 py-2 bg-brand text-white rounded hover:bg-brand-hover">Auto</button>
+        </div>
+        <p class="text-sm text-muted">Current theme: <span id="current-theme">light</span></p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Language Switcher</h2>
+        <div class="flex gap-4 mb-4">
+          <button onclick="setLanguage('en')" class="px-4 py-2 bg-brand text-white rounded hover:bg-brand-hover">English</button>
+          <button onclick="setLanguage('es')" class="px-4 py-2 bg-brand text-white rounded hover:bg-brand-hover">Español</button>
+        </div>
+        <p class="text-sm text-muted">Current language: <span id="current-language">en</span></p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Telemetry Events</h2>
+        <div class="bg-surface rounded-lg shadow-md p-4">
+          <pre id="telemetry-log" class="text-sm text-muted overflow-auto max-h-64"></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-12 pt-8 border-t border-muted/30 text-center text-muted">
+      <p>Built with Turnstile UX Kit</p>
+    </footer>
+  </div>
+
+  <script type="module">
+    import { initChallenge } from '../dist/index.js';
+
+    let challenge;
+
+    async function init() {
+      challenge = initChallenge({
+        siteKey: '1x00000000000000000000AA', // Test site key
+        containerId: 'turnstile-widget',
+        theme: 'light',
+        telemetry: true,
+        callbacks: {
+          onToken: (token) => {
+            const display = document.getElementById('token-display');
+            const text = document.getElementById('token-text');
+            display?.classList.remove('hidden');
+            if (text) text.textContent = token;
+            logTelemetry({ event: 'token_received', token: token.substring(0, 20) + '...' });
+          },
+          onError: (error) => {
+            console.error('Error:', error);
+            logTelemetry({ event: 'error', code: error });
+          }
+        }
+      });
+
+      challenge.onTelemetry((event) => {
+        logTelemetry(event);
+      });
+
+      // Wait for ready
+      const checkReady = setInterval(() => {
+        if (challenge.isReady()) {
+          clearInterval(checkReady);
+          challenge.render();
+        }
+      }, 100);
+    }
+
+    function logTelemetry(event) {
+      const log = document.getElementById('telemetry-log');
+      if (log) {
+        log.textContent = JSON.stringify(event, null, 2) + '\n\n' + log.textContent;
+      }
+    }
+
+    window.setTheme = (theme) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      document.getElementById('current-theme').textContent = theme;
+      if (challenge) {
+        challenge.setTheme(theme);
+      }
+    };
+
+    window.setLanguage = (lang) => {
+      document.getElementById('current-language').textContent = lang;
+      if (challenge) {
+        challenge.setLanguage(lang);
+      }
+    };
+
+    init();
+  </script>
+</body>
+</html>

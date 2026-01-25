@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Blocked</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/components.css">
+</head>
+<body>
+  <div class="challenge-container" role="main">
+    <article class="challenge-card">
+      <div class="flex items-center justify-center mb-4">
+        <svg class="w-12 h-12 text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      </div>
+      
+      <h1 class="challenge-heading">Request Blocked</h1>
+      <p class="challenge-text">Our security system blocked this request</p>
+      
+      <div class="challenge-alert challenge-alert-danger">
+        <p class="font-semibold">This may happen because:</p>
+        <ul class="challenge-list">
+          <li>The request contained malicious patterns</li>
+          <li>Suspicious activity was detected</li>
+          <li>Automated bot behavior was detected</li>
+        </ul>
+      </div>
+      
+      <div class="mt-6 space-y-4">
+        <p class="text-body text-muted">
+          If you believe this is an error, please contact support
+        </p>
+        
+        <a href="/support" class="challenge-button challenge-button-primary w-full block text-center">
+          Contact Support
+        </a>
+      </div>
+      
+      <div class="mt-6 pt-6 border-t border-muted/30">
+        <p class="text-sm text-muted mb-2">Ray ID</p>
+        <div class="challenge-copy-field">
+          <code id="ray-id" class="challenge-code-block flex-1">1234567890abcdef</code>
+          <button id="copy-ray-button" class="challenge-copy-button">Copy</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    document.getElementById('copy-ray-button').addEventListener('click', function() {
+      const rayId = document.getElementById('ray-id');
+      navigator.clipboard.writeText(rayId.textContent || '');
+      this.textContent = 'Copied!';
+      setTimeout(() => {
+        this.textContent = 'Copy';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

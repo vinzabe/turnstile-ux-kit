@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify You're Human</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/components.css">
+</head>
+<body>
+  <div class="challenge-container" role="main">
+    <article class="challenge-card">
+      <h1 class="challenge-heading">Verify You're Human</h1>
+      <p class="challenge-text">Please complete the verification below to continue</p>
+      
+      <div id="turnstile-widget" role="region" aria-label="Verification widget" aria-live="polite"></div>
+      
+      <div id="loading-spinner" class="flex items-center justify-center py-4" aria-hidden="true">
+        <span class="challenge-spinner"></span>
+        <span class="ml-2 text-muted">Loading verification...</span>
+      </div>
+      
+      <p class="text-sm text-muted mt-4">
+        <a href="#privacy" class="challenge-link">Privacy Policy</a>
+      </p>
+      
+      <div id="error-message" class="challenge-alert challenge-alert-danger hidden" role="alert" aria-live="assertive">
+        <p class="font-semibold">Error</p>
+        <p class="text-sm"></p>
+      </div>
+    </article>
+  </div>
+
+  <script type="module">
+    import { initChallenge } from '../sdk.js';
+    
+    const challenge = initChallenge({
+      siteKey: 'YOUR_SITE_KEY',
+      containerId: 'turnstile-widget',
+      theme: 'auto',
+      size: 'normal',
+      language: 'en',
+      telemetry: true,
+      callbacks: {
+        onToken: (token) => {
+          console.log('Token received:', token);
+          document.getElementById('loading-spinner')?.classList.add('hidden');
+        },
+        onError: (errorCode) => {
+          console.error('Error:', errorCode);
+          showError(errorCode);
+        }
+      }
+    });
+    
+    function showError(code) {
+      const errorEl = document.getElementById('error-message');
+      if (errorEl) {
+        errorEl.classList.remove('hidden');
+        errorEl.querySelector('p:last-child').textContent = code;
+      }
+    }
+  </script>
+</body>
+</html>

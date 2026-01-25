@@ -1,0 +1,101 @@
+{
+  "turnstile": {
+    "heading": "Verifica que eres humano",
+    "description": "Por favor completa la verificación a continuación para continuar",
+    "loading": "Cargando verificación...",
+    "privacy": "Política de privacidad",
+    "success": "Verificación exitosa",
+    "error": "Verificación fallida"
+  },
+  "turnstile_redirect": {
+    "heading": "Por favor verifica para continuar",
+    "description": "Completa la verificación para continuar",
+    "return": "Volver a {{app_name}}",
+    "cancel": "Cancelar"
+  },
+  "blocked_waf": {
+    "heading": "Solicitud bloqueada",
+    "description": "Nuestro sistema de seguridad bloqueó esta solicitud",
+    "reasons": {
+      "title": "Esto puede suceder porque:",
+      "malicious": "La solicitud contenía patrones maliciosos",
+      "suspicious": "Se detectó actividad sospechosa",
+      "bot": "Se detectó comportamiento de bot automatizado"
+    },
+    "what_to_do": "Si crees que esto es un error, por favor contacta a soporte",
+    "ray_id": "ID de Ray",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "support": "Contactar soporte"
+  },
+  "blocked_geo": {
+    "heading": "Acceso no disponible",
+    "description": "Este servicio no está disponible en tu región",
+    "details": "Debido a requisitos de cumplimiento, el acceso está limitado a ciertas áreas geográficas",
+    "support": "Para preguntas sobre las restricciones de acceso, por favor contacta a soporte",
+    "request_id": "ID de solicitud"
+  },
+  "ratelimit": {
+    "heading": "Demasiadas solicitudes",
+    "description": "Has hecho demasiadas solicitudes. Por favor espera antes de intentar de nuevo.",
+    "wait": "Por favor espera {{seconds}} segundos",
+    "retry": "Intentar ahora",
+    "retry_disabled": "Por favor espera para reintentar",
+    "tips": {
+      "title": "¿Qué puedo hacer?",
+      "wait": "Espera a que termine el temporizador",
+      "reduce": "Reduce la frecuencia de tus solicitudes",
+      "support": "Contacta a soporte si esto persiste"
+    },
+    "request_id": "ID de solicitud"
+  },
+  "error": {
+    "heading": "Algo salió mal",
+    "description": "Estamos experimentando dificultades técnicas. Por favor intenta de nuevo.",
+    "retry": "Intentar de nuevo",
+    "last_attempt": "Último intento: {{time}}",
+    "tips": {
+      "title": "Consejos:",
+      "refresh": "Intenta recargar la página",
+      "check": "Verifica tu conexión a internet",
+      "support": "Contacta a soporte si esto continúa"
+    },
+    "request_id": "ID de solicitud"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "retry": "Reintentar",
+    "error": "Error",
+    "success": "Éxito",
+    "request_id": "ID de solicitud",
+    "ray_id": "ID de Ray"
+  },
+  "errors": {
+    "network": {
+      "message": "Problema de red detectado",
+      "action": "Verifica tu conexión a internet e intenta de nuevo"
+    },
+    "expired": {
+      "message": "Verificación expirada",
+      "action": "Por favor reintenta la verificación"
+    },
+    "unsupported": {
+      "message": "Navegador no compatible",
+      "action": "Habilita JavaScript o usa un navegador moderno"
+    },
+    "invalid": {
+      "message": "Verificación inválida",
+      "action": "Por favor completa la verificación de nuevo"
+    },
+    "timeout": {
+      "message": "La solicitud expiró",
+      "action": "Por favor intenta de nuevo"
+    },
+    "unknown": {
+      "message": "Ocurrió un error",
+      "action": "Por favor intenta de nuevo o contacta a soporte"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Please Verify to Continue</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/components.css">
+</head>
+<body>
+  <div class="challenge-container" role="main">
+    <article class="challenge-card-lg">
+      <h1 class="challenge-heading">Please Verify to Continue</h1>
+      <p class="challenge-text">Complete the verification to proceed</p>
+      
+      <div id="turnstile-widget" role="region" aria-label="Verification widget" aria-live="polite"></div>
+      
+      <div id="loading-spinner" class="flex items-center justify-center py-4">
+        <span class="challenge-spinner"></span>
+        <span class="ml-2 text-muted">Loading...</span>
+      </div>
+      
+      <div id="success-message" class="challenge-alert challenge-alert-success hidden">
+        <p class="font-semibold">Verification Successful!</p>
+        <p class="text-sm">Redirecting you back to the application...</p>
+      </div>
+      
+      <div class="mt-6 flex gap-4">
+        <a id="return-link" href="#" class="challenge-button challenge-button-primary hidden">
+          Return to Application
+        </a>
+        <button id="cancel-button" class="challenge-button challenge-button-secondary">
+          Cancel
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <script type="module">
+    import { initChallenge } from '../sdk.js';
+    import { I18n } from '../i18n/loader.js';
+    
+    const i18n = new I18n();
+    
+    const challenge = initChallenge({
+      siteKey: 'YOUR_SITE_KEY',
+      containerId: 'turnstile-widget',
+      theme: 'auto',
+      telemetry: true,
+      callbacks: {
+        onToken: async (token) => {
+          document.getElementById('loading-spinner')?.classList.add('hidden');
+          
+          const successEl = document.getElementById('success-message');
+          successEl?.classList.remove('hidden');
+          
+          const returnLink = document.getElementById('return-link');
+          returnLink?.classList.remove('hidden');
+          returnLink?.focus();
+          
+          window.location.href = '/dashboard';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

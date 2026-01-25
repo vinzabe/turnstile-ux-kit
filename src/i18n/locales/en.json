@@ -1,0 +1,101 @@
+{
+  "turnstile": {
+    "heading": "Verify You're Human",
+    "description": "Please complete the verification below to continue",
+    "loading": "Loading verification...",
+    "privacy": "Privacy Policy",
+    "success": "Verification successful",
+    "error": "Verification failed"
+  },
+  "turnstile_redirect": {
+    "heading": "Please Verify to Continue",
+    "description": "Complete the verification to proceed",
+    "return": "Return to {{app_name}}",
+    "cancel": "Cancel"
+  },
+  "blocked_waf": {
+    "heading": "Request Blocked",
+    "description": "Our security system blocked this request",
+    "reasons": {
+      "title": "This may happen because:",
+      "malicious": "The request contained malicious patterns",
+      "suspicious": "Suspicious activity was detected",
+      "bot": "Automated bot behavior was detected"
+    },
+    "what_to_do": "If you believe this is an error, please contact support",
+    "ray_id": "Ray ID",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "support": "Contact Support"
+  },
+  "blocked_geo": {
+    "heading": "Access Unavailable",
+    "description": "This service is not available in your region",
+    "details": "Due to compliance requirements, access is limited to certain geographic areas",
+    "support": "For questions about access restrictions, please contact support",
+    "request_id": "Request ID"
+  },
+  "ratelimit": {
+    "heading": "Too Many Requests",
+    "description": "You've made too many requests. Please wait before trying again.",
+    "wait": "Please wait {{seconds}} seconds",
+    "retry": "Retry Now",
+    "retry_disabled": "Please wait to retry",
+    "tips": {
+      "title": "What can I do?",
+      "wait": "Wait for the timer to finish",
+      "reduce": "Reduce your request frequency",
+      "support": "Contact support if this persists"
+    },
+    "request_id": "Request ID"
+  },
+  "error": {
+    "heading": "Something Went Wrong",
+    "description": "We're experiencing technical difficulties. Please try again.",
+    "retry": "Try Again",
+    "last_attempt": "Last attempt: {{time}}",
+    "tips": {
+      "title": "Tips:",
+      "refresh": "Try refreshing the page",
+      "check": "Check your internet connection",
+      "support": "Contact support if this continues"
+    },
+    "request_id": "Request ID"
+  },
+  "common": {
+    "loading": "Loading...",
+    "cancel": "Cancel",
+    "close": "Close",
+    "retry": "Retry",
+    "error": "Error",
+    "success": "Success",
+    "request_id": "Request ID",
+    "ray_id": "Ray ID"
+  },
+  "errors": {
+    "network": {
+      "message": "Network issue detected",
+      "action": "Check your internet connection and try again"
+    },
+    "expired": {
+      "message": "Verification expired",
+      "action": "Please retry verification"
+    },
+    "unsupported": {
+      "message": "Browser not supported",
+      "action": "Enable JavaScript or use a modern browser"
+    },
+    "invalid": {
+      "message": "Invalid verification",
+      "action": "Please complete the verification again"
+    },
+    "timeout": {
+      "message": "Request timed out",
+      "action": "Please try again"
+    },
+    "unknown": {
+      "message": "An error occurred",
+      "action": "Please try again or contact support"
+    }
+  }
+}
