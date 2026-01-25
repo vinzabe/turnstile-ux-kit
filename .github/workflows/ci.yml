@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Bun
@@ -19,16 +19,16 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install dependencies
+      - name: Install
         run: bun install
 
-      - name: Run tests
+      - name: Test
         run: bun test
 
       - name: Lint
         run: bunx eslint src tests --ext .ts,.tsx || true
 
-      - name: Format check
+      - name: Format
         run: bunx prettier --check "src/**/*.{ts,tsx,json,css}" "tests/**/*.{ts,tsx}" || true
 
       - name: Build
