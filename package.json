@@ -27,7 +27,7 @@
     "i18n",
     "a11y"
   ],
-  "author": "Turnstile UX Kit Team",
+  "author": "Abejar DevSec Team",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.0",

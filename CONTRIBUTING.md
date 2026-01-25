@@ -2,6 +2,8 @@
 
 Thank you for your interest in contributing! This guide will help you get started.
 
+Built with ❤️ by Abejar DevSec Team
+
 ## Code of Conduct
 
 Be respectful, inclusive, and constructive. We're all here to help each other learn and build.
