@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Something Went Wrong</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/components.css">
+</head>
+<body>
+  <div class="challenge-container" role="main">
+    <article class="challenge-card">
+      <div class="flex items-center justify-center mb-4">
+        <svg class="w-12 h-12 text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      
+      <h1 class="challenge-heading">Something Went Wrong</h1>
+      <p class="challenge-text">We're experiencing technical difficulties. Please try again.</p>
+      
+      <div class="mt-6 space-y-4">
+        <button id="retry-button" class="challenge-button challenge-button-primary w-full">
+          Try Again
+        </button>
+        
+        <details class="challenge-text">
+          <summary class="cursor-pointer font-semibold text-text">Tips:</summary>
+          <ul class="challenge-list mt-2">
+            <li>Try refreshing the page</li>
+            <li>Check your internet connection</li>
+            <li>Contact support if this continues</li>
+          </ul>
+        </details>
+      </div>
+      
+      <div id="status-area" class="mt-6 pt-6 border-t border-muted/30 hidden">
+        <p class="text-sm text-muted">Last attempt: <span id="last-attempt-time"></span></p>
+      </div>
+      
+      <div class="mt-6 pt-6 border-t border-muted/30">
+        <p class="text-sm text-muted mb-2">Request ID</p>
+        <div class="challenge-copy-field">
+          <code id="request-id" class="challenge-code-block flex-1">req_error_123</code>
+          <button id="copy-button" class="challenge-copy-button">Copy</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    const retryButton = document.getElementById('retry-button');
+    const statusArea = document.getElementById('status-area');
+    const lastAttemptTime = document.getElementById('last-attempt-time');
+    const copyButton = document.getElementById('copy-button');
+    
+    retryButton.addEventListener('click', () => {
+      retryButton.disabled = true;
+      retryButton.innerHTML = '<span class="challenge-spinner inline-block w-4 h-4 mr-2"></span>Retrying...';
+      
+      setTimeout(() => {
+        statusArea.classList.remove('hidden');
+        lastAttemptTime.textContent = new Date().toLocaleTimeString();
+        retryButton.disabled = false;
+        retryButton.textContent = 'Try Again';
+      }, 1500);
+    });
+    
+    copyButton.addEventListener('click', () => {
+      const requestId = document.getElementById('request-id');
+      navigator.clipboard.writeText(requestId.textContent || '');
+      copyButton.textContent = 'Copied!';
+      setTimeout(() => {
+        copyButton.textContent = 'Copy';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

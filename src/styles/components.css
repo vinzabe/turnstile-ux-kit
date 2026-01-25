@@ -1,0 +1,131 @@
+/**
+ * Component Classes
+ * Reusable UI components using Tailwind utilities
+ */
+
+@layer components {
+  /* Card Container */
+  .challenge-card {
+    @apply bg-surface rounded-lg shadow-md p-6 max-w-md mx-auto;
+  }
+
+  .challenge-card-lg {
+    @apply bg-surface rounded-lg shadow-md p-8 max-w-2xl mx-auto;
+  }
+
+  /* Buttons */
+  .challenge-button {
+    @apply px-4 py-2 rounded font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-dark;
+  }
+
+  .challenge-button-primary {
+    @apply challenge-button bg-brand text-white hover:bg-brand-hover;
+  }
+
+  .challenge-button-secondary {
+    @apply challenge-button bg-transparent border-2 border-brand text-brand hover:bg-brand hover:text-white;
+  }
+
+  .challenge-button-danger {
+    @apply challenge-button bg-danger text-white hover:bg-danger-hover;
+  }
+
+  .challenge-button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Links */
+  .challenge-link {
+    @apply text-brand hover:text-brand-hover underline focus:outline-none focus:ring-2 focus:ring-brand-dark rounded;
+  }
+
+  /* Alerts */
+  .challenge-alert {
+    @apply border-l-4 p-4 mb-4 rounded-r;
+  }
+
+  .challenge-alert-info {
+    @apply challenge-alert border-brand bg-brand/10;
+  }
+
+  .challenge-alert-warning {
+    @apply challenge-alert border-warning bg-warning/10;
+  }
+
+  .challenge-alert-danger {
+    @apply challenge-alert border-danger bg-danger/10;
+  }
+
+  .challenge-alert-success {
+    @apply challenge-alert border-success bg-success/10;
+  }
+
+  /* Spinner */
+  .challenge-spinner {
+    @apply inline-block w-6 h-6 border-2 border-current border-t-transparent rounded-full animate-spin;
+  }
+
+  /* Code Block / Copy Field */
+  .challenge-code-block {
+    @apply bg-background border border-muted/30 rounded px-3 py-2 font-mono text-sm;
+  }
+
+  .challenge-copy-field {
+    @apply flex items-center gap-2;
+  }
+
+  .challenge-copy-button {
+    @apply px-2 py-1 text-sm rounded bg-muted/20 hover:bg-muted/40 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-dark;
+  }
+
+  /* Typography Utilities */
+  .challenge-heading {
+    @apply text-h1 font-bold text-text mb-4;
+  }
+
+  .challenge-subheading {
+    @apply text-h2 font-semibold text-text mb-3;
+  }
+
+  .challenge-text {
+    @apply text-body text-muted mb-4;
+  }
+
+  /* Status Icons */
+  .challenge-status-icon {
+    @apply inline-block w-12 h-12 mb-4;
+  }
+
+  /* Lists */
+  .challenge-list {
+    @apply list-disc list-inside text-body text-muted mb-4 space-y-2;
+  }
+
+  /* Container */
+  .challenge-container {
+    @apply min-h-screen flex items-center justify-center px-4 py-8;
+  }
+
+  /* Focus Styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-dark ring-offset-2;
+  }
+
+  /* Screen Reader Only */
+  .sr-only {
+    @apply sr-only;
+  }
+}
+
+/* Screen Reader Only Class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

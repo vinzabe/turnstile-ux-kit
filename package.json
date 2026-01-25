@@ -1,0 +1,44 @@
+{
+  "name": "@turnstile/ux-kit",
+  "version": "0.1.0",
+  "description": "Self-contained kit for polished Turnstile verification, blocked, and rate-limited experiences",
+  "type": "module",
+  "main": "dist/sdk/index.js",
+  "module": "dist/sdk/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "test": "bun test",
+    "lint": "eslint src tests --ext .ts,.tsx",
+    "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\" \"tests/**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit",
+    "dev": "bun run build && bun run examples/vanilla/server.ts"
+  },
+  "keywords": [
+    "turnstile",
+    "cloudflare",
+    "captcha",
+    "verification",
+    "accessibility",
+    "i18n",
+    "a11y"
+  ],
+  "author": "Turnstile UX Kit Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "bun-types": "latest",
+    "eslint": "^8.56.0",
+    "happy-dom": "^13.3.0",
+    "postcss": "^8.4.33",
+    "prettier": "^3.2.4",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Too Many Requests</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/components.css">
+</head>
+<body>
+  <div class="challenge-container" role="main">
+    <article class="challenge-card">
+      <h1 class="challenge-heading">Too Many Requests</h1>
+      <p class="challenge-text">You've made too many requests. Please wait before trying again.</p>
+      
+      <div class="challenge-alert challenge-alert-warning">
+        <p id="countdown-message" class="text-body" role="timer" aria-live="off">
+          Please wait <strong id="countdown">60</strong> seconds
+        </p>
+      </div>
+      
+      <div class="mt-6 space-y-4">
+        <button id="retry-button" class="challenge-button challenge-button-primary w-full" disabled>
+          Retry Now
+        </button>
+        
+        <details class="challenge-text">
+          <summary class="cursor-pointer font-semibold text-text">What can I do?</summary>
+          <ul class="challenge-list mt-2">
+            <li>Wait for the timer to finish</li>
+            <li>Reduce your request frequency</li>
+            <li>Contact support if this persists</li>
+          </ul>
+        </details>
+      </div>
+      
+      <div class="mt-6 pt-6 border-t border-muted/30">
+        <p class="text-sm text-muted mb-2">Request ID</p>
+        <div class="challenge-copy-field">
+          <code id="request-id" class="challenge-code-block flex-1">req_abc123</code>
+          <button id="copy-button" class="challenge-copy-button">Copy</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    const COUNTDOWN_SECONDS = 60;
+    let remainingSeconds = COUNTDOWN_SECONDS;
+    
+    const countdownEl = document.getElementById('countdown');
+    const countdownMessageEl = document.getElementById('countdown-message');
+    const retryButton = document.getElementById('retry-button');
+    const copyButton = document.getElementById('copy-button');
+    const requestId = document.getElementById('request-id');
+    
+    function updateCountdown() {
+      if (remainingSeconds <= 0) {
+        countdownEl.textContent = '0';
+        retryButton.disabled = false;
+        retryButton.textContent = 'Retry Now';
+        countdownMessageEl.setAttribute('aria-live', 'polite');
+        return;
+      }
+      
+      countdownEl.textContent = remainingSeconds.toString();
+      remainingSeconds--;
+      setTimeout(updateCountdown, 1000);
+    }
+    
+    retryButton.addEventListener('click', () => {
+      window.location.reload();
+    });
+    
+    copyButton.addEventListener('click', () => {
+      navigator.clipboard.writeText(requestId.textContent || '');
+      copyButton.textContent = 'Copied!';
+      setTimeout(() => {
+        copyButton.textContent = 'Copy';
+      }, 2000);
+    });
+    
+    updateCountdown();
+  </script>
+</body>
+</html>
