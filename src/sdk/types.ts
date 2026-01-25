@@ -31,6 +31,7 @@ export interface ChallengeController {
   setLanguage(lang: string): void;
   setTheme(theme: ChallengeTheme): void;
   isReady(): boolean;
+  onTelemetry(hook: TelemetryHook): void;
 }
 
 export type TelemetryEventType =
