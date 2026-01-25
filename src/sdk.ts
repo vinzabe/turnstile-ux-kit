@@ -2,8 +2,8 @@
  * Turnstile UX Kit SDK
  */
 
-export * from './types.js';
-export * from './errors.js';
-export * from './retry.js';
-export * from './telemetry.js';
-export * from './index.js';
+export * from './sdk/types';
+export * from './sdk/errors';
+export * from './sdk/retry';
+export * from './sdk/telemetry';
+export * from './sdk/index';

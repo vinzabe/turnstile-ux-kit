@@ -2,10 +2,10 @@
  * Core SDK implementation
  */
 
-import type { ChallengeOptions, ChallengeController, TelemetryEvent } from './types.js';
-import { TelemetryManager } from './telemetry.js';
-import { RetryHandler } from './retry.js';
-import { getErrorDisplay, isRetryableError } from './errors.js';
+import type { ChallengeOptions, ChallengeController, TelemetryEvent } from './types';
+import { TelemetryManager } from './telemetry';
+import { RetryHandler } from './retry';
+import { getErrorDisplay, isRetryableError } from './errors';
 
 declare global {
   interface Window {
