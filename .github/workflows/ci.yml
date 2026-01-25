@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install
+        run: npm install
+      - name: Test
+        run: npm run test:ci
+      - name: Lint
+        run: npm run lint:ci
+      - name: Format
+        run: npm run format:ci
+      - name: Build
+        run: npm run build:ci

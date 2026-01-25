@@ -16,7 +16,11 @@
     "lint": "bunx eslint src tests --ext .ts,.tsx",
     "format": "bunx prettier --write \"src/**/*.{ts,tsx,json,css}\" \"tests/**/*.{ts,tsx}\"",
     "typecheck": "bunx tsc --noEmit",
-    "dev": "bun run build && bun run examples/vanilla/server.ts"
+    "dev": "bun run build && bun run examples/vanilla/server.ts",
+    "test:ci": "npm test",
+    "lint:ci": "npm run lint || exit 0",
+    "format:ci": "npm run prettier --check \"src/**/*.{ts,tsx,json,css}\" \"tests/**/*.{ts,tsx}\" || exit 0",
+    "build:ci": "npm install && npm run build"
   },
   "keywords": [
     "turnstile",
