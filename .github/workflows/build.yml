@@ -1,6 +1,9 @@
 name: Build
 
-on: [push]
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -8,4 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
       - run: bun install && bun run build
