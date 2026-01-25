@@ -3,7 +3,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import type { ChallengeOptions, ChallengeController, TelemetryEvent } from '../sdk/index.js';
+import type { ChallengeOptions, ChallengeController, TelemetryEvent } from '../../sdk/index.js';
 
 export interface TurnstileChallengeProps extends Omit<ChallengeOptions, 'containerId'> {
   onReady?: () => void;
@@ -19,7 +19,7 @@ export function TurnstileChallenge(props: TurnstileChallengeProps) {
     let mounted = true;
 
     const init = async () => {
-      const { initChallenge } = await import('../sdk/index.js');
+      const { initChallenge } = await import('../../sdk/index.js');
 
       if (!mounted || !containerRef.current) return;
 

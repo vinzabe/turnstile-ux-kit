@@ -2,4 +2,4 @@
  * React Adapter Entry Point
  */
 
-export * from './TurnstileChallenge';
+export * from './TurnstileChallenge.js';
