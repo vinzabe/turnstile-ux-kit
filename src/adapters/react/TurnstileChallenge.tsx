@@ -3,7 +3,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import type { ChallengeOptions, ChallengeController, TelemetryEvent } from '../sdk';
+import type { ChallengeOptions, ChallengeController, TelemetryEvent } from '../sdk/index.js';
 
 export interface TurnstileChallengeProps extends Omit<ChallengeOptions, 'containerId'> {
   onReady?: () => void;
@@ -12,16 +12,15 @@ export interface TurnstileChallengeProps extends Omit<ChallengeOptions, 'contain
 export function TurnstileChallenge(props: TurnstileChallengeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const controllerRef = useRef<ChallengeController | null>(null);
-  const [isReady, setIsReady] = useState(false);
-  
+
   const uniqueId = `turnstile-${Math.random().toString(36).substr(2, 9)}`;
 
   useEffect(() => {
     let mounted = true;
 
     const init = async () => {
-      const { initChallenge } = await import('../sdk');
-      
+      const { initChallenge } = await import('../sdk/index.js');
+
       if (!mounted || !containerRef.current) return;
 
       const controller = initChallenge({
@@ -35,7 +34,6 @@ export function TurnstileChallenge(props: TurnstileChallengeProps) {
         if (controller.isReady()) {
           clearInterval(checkReady);
           if (mounted) {
-            setIsReady(true);
             controller.render();
             props.onReady?.();
           }
@@ -71,7 +69,7 @@ export function useTurnstileTelemetry() {
     if (!controller) return () => {};
 
     const handler = (event: TelemetryEvent) => {
-      setEvents(prev => [...prev, event]);
+      setEvents((prev: TelemetryEvent[]) => [...prev, event]);
     };
 
     controller.onTelemetry(handler);

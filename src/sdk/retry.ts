@@ -6,7 +6,7 @@ import type { RetryOptions } from './types.js';
 
 export class RetryHandler {
   private attempts: number = 0;
-  private currentTimeout: number | null = null;
+  private currentTimeout: ReturnType<typeof setTimeout> | null = null;
   private options: Required<Omit<RetryOptions, 'maxAttempts'>> & { maxAttempts: number };
 
   constructor(options: RetryOptions) {
@@ -33,7 +33,7 @@ export class RetryHandler {
     }
 
     const delay = this.getNextDelay();
-    await new Promise(resolve => {
+    await new Promise<void>(resolve => {
       this.currentTimeout = setTimeout(resolve, delay);
     });
 

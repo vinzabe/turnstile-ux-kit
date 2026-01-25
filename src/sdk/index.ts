@@ -2,10 +2,10 @@
  * Core SDK implementation
  */
 
-import type { ChallengeOptions, ChallengeController, TelemetryEvent } from './types';
-import { TelemetryManager } from './telemetry';
-import { RetryHandler } from './retry';
-import { getErrorDisplay, isRetryableError } from './errors';
+import type { ChallengeOptions, ChallengeController, TelemetryEvent } from './types.js';
+import { TelemetryManager } from './telemetry.js';
+import { RetryHandler } from './retry.js';
+import { getErrorDisplay, isRetryableError } from './errors.js';
 
 declare global {
   interface Window {
@@ -128,8 +128,6 @@ export class TurnstileChallenge implements ChallengeController {
       error_code: error
     });
 
-    const errorDisplay = getErrorDisplay(error);
-
     if (this.options.callbacks?.onError) {
       this.options.callbacks.onError(error);
     }
@@ -139,12 +137,12 @@ export class TurnstileChallenge implements ChallengeController {
     }
   }
 
-  private async retryWithBackoff(errorCode: string): void {
+  private async retryWithBackoff(errorCode: string): Promise<void> {
     if (!this.retryHandler) return;
 
     const success = await this.retryHandler.retry(async () => {
       this.reset();
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise<void>(resolve => setTimeout(resolve, 100));
     });
 
     if (!success && this.options.callbacks?.onError) {
