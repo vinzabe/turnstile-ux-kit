@@ -2,7 +2,7 @@
  * Internationalization (i18n) loader
  */
 
-import type { I18nOptions } from '../sdk/types.js';
+import type { I18nOptions } from '../sdk/types';
 
 interface LocaleData {
   [key: string]: unknown;

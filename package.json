@@ -13,9 +13,9 @@
   "scripts": {
     "build": "bun run scripts/build.ts",
     "test": "bun test",
-    "lint": "eslint src tests --ext .ts,.tsx",
-    "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\" \"tests/**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit",
+    "lint": "bunx eslint src tests --ext .ts,.tsx",
+    "format": "bunx prettier --write \"src/**/*.{ts,tsx,json,css}\" \"tests/**/*.{ts,tsx}\"",
+    "typecheck": "bunx tsc --noEmit",
     "dev": "bun run build && bun run examples/vanilla/server.ts"
   },
   "keywords": [
@@ -34,6 +34,8 @@
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
     "bun-types": "latest",
+    "dts-bundle-generator": "^9.5.1",
+    "esbuild": "^0.27.2",
     "eslint": "^8.56.0",
     "happy-dom": "^13.3.0",
     "postcss": "^8.4.33",
