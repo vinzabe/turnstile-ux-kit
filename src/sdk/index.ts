@@ -5,7 +5,7 @@
 import type { ChallengeOptions, ChallengeController, TelemetryEvent } from './types.js';
 import { TelemetryManager } from './telemetry.js';
 import { RetryHandler } from './retry.js';
-import { getErrorDisplay, isRetryableError } from './errors.js';
+import { isRetryableError } from './errors.js';
 
 declare global {
   interface Window {

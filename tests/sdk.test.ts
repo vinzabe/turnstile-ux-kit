@@ -9,6 +9,27 @@ import { RetryHandler } from '../src/sdk/retry.js';
 import { TelemetryManager } from '../src/sdk/telemetry.js';
 import { I18n } from '../src/i18n/loader.js';
 
+declare global {
+  interface Window {
+    turnstile: {
+      render: ReturnType<typeof vi.fn>;
+      reset: ReturnType<typeof vi.fn>;
+      remove: ReturnType<typeof vi.fn>;
+    };
+    navigator: {
+      language: string;
+    };
+  }
+
+  interface Document {
+    getElementById: ReturnType<typeof vi.fn>;
+    createElement: ReturnType<typeof vi.fn>;
+    head: {
+      appendChild: ReturnType<typeof vi.fn>;
+    };
+  }
+}
+
 // Mock window.turnstile
 global.window = {
   turnstile: {
@@ -19,7 +40,7 @@ global.window = {
   navigator: {
     language: 'en-US'
   }
-} as any;
+};
 
 global.document = {
   getElementById: vi.fn(),
@@ -27,15 +48,15 @@ global.document = {
   head: {
     appendChild: vi.fn()
   }
-} as any;
+};
 
 describe('initChallenge', () => {
   it('should throw error without siteKey', () => {
-    expect(() => initChallenge({ containerId: 'test' } as any)).toThrow('siteKey is required');
+    expect(() => initChallenge({ containerId: 'test' } as ChallengeOptions)).toThrow('siteKey is required');
   });
 
   it('should throw error without containerId', () => {
-    expect(() => initChallenge({ siteKey: 'test' } as any)).toThrow('containerId is required');
+    expect(() => initChallenge({ siteKey: 'test' } as ChallengeOptions)).toThrow('containerId is required');
   });
 
   it('should return ChallengeController instance', () => {
