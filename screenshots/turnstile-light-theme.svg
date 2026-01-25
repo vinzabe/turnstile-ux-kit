@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400">
+  <rect width="800" height="400" fill="#ffffff"/>
+
+  <!-- Card Container -->
+  <rect x="50" y="50" width="700" height="300" rx="8" fill="#ffffff" stroke="#dee2e6" stroke-width="2"/>
+
+  <!-- Title -->
+  <text x="80" y="100" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333333">
+    Verify You're Human
+  </text>
+
+  <!-- Content -->
+  <text x="80" y="150" font-family="Arial, sans-serif" font-size="16" fill="#333333">
+    Please complete the verification below
+  </text>
+
+  <!-- Widget Placeholder -->
+  <rect x="80" y="180" width="640" height="120" rx="4" fill="#f8f9fa" stroke="#6c757d" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Loading Icon -->
+  <circle cx="400" cy="240" r="20" fill="none" stroke="#6c757d" stroke-width="3"/>
+  <line x1="400" y1="225" x2="400" y2="235" stroke="#6c757d" stroke-width="3" stroke-linecap="round"/>
+  <line x1="400" y1="255" x2="400" y2="245" stroke="#6c757d" stroke-width="3" stroke-linecap="round"/>
+  <line x1="385" y1="240" x2="395" y2="240" stroke="#6c757d" stroke-width="3" stroke-linecap="round"/>
+  <line x1="415" y1="240" x2="405" y2="240" stroke="#6c757d" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Label -->
+  <text x="400" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+    Turnstile Widget
+  </text>
+</svg>

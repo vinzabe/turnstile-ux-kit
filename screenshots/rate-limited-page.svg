@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450">
+  <rect width="800" height="450" fill="#fff3cd"/>
+
+  <!-- Warning Card -->
+  <rect x="50" y="50" width="700" height="350" rx="8" fill="#ffffff" stroke="#ffc107" stroke-width="3"/>
+
+  <!-- Warning Icon -->
+  <text x="80" y="120" font-size="48" fill="#856404">⚠️</text>
+
+  <!-- Title -->
+  <text x="150" y="110" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#856404">
+    Rate Limit Exceeded
+  </text>
+
+  <!-- Content -->
+  <text x="80" y="170" font-family="Arial, sans-serif" font-size="16" fill="#856404">
+    You have made too many requests. Please wait a few minutes before trying again.
+  </text>
+
+  <!-- Buttons -->
+  <rect x="80" y="220" width="180" height="45" rx="6" fill="#ffc107"/>
+  <text x="170" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">
+    Try Again
+  </text>
+
+  <rect x="280" y="220" width="180" height="45" rx="6" fill="none" stroke="#ffc107" stroke-width="2"/>
+  <text x="370" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#856404">
+    Contact Support
+  </text>
+
+  <!-- Request ID -->
+  <text x="80" y="330" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">
+    Request ID: abc123-def456-ghi789
+  </text>
+
+  
+</svg>
