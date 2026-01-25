@@ -48,7 +48,11 @@ The kit is built with modern web standards, includes full TypeScript support, an
 
 ## 📸 Screenshots
 
+> **🔴 Live Demo:** Open [demo.html](./demo.html) to see all themes and pages in action!
+
 ### Light Theme
+
+Clean, modern light theme with high readability:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -56,9 +60,8 @@ The kit is built with modern web standards, includes full TypeScript support, an
 │  Please complete the verification to continue            │
 │                                                         │
 │  ┌───────────────────────────────────────────────────┐   │
-│  │                                                  │   │
-│  │   [ 🔄 Loading Turnstile Widget... ]           │   │
-│  │                                                  │   │
+│  │   [ Turnstile Widget Placeholder ]              │   │
+│  │   Actual widget loads when configured          │   │
 │  └───────────────────────────────────────────────────┘   │
 │                                                         │
 │  Powered by Turnstile                                    │
@@ -67,15 +70,16 @@ The kit is built with modern web standards, includes full TypeScript support, an
 
 ### Dark Theme
 
+Sleek dark theme optimized for low-light environments:
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  Verify You're Human                                   │
 │  Please complete the verification to continue            │
 │                                                         │
 │  ┌───────────────────────────────────────────────────┐   │
-│  │                                                  │   │
-│  │   [ 🔄 Loading Turnstile Widget... ]           │   │
-│  │                                                  │   │
+│  │   [ Turnstile Widget Placeholder ]              │   │
+│  │   Dark mode colors and styling               │   │
 │  └───────────────────────────────────────────────────┘   │
 │                                                         │
 │  Powered by Turnstile                                    │
@@ -84,6 +88,8 @@ The kit is built with modern web standards, includes full TypeScript support, an
 
 ### Rate Limited Page
 
+Friendly messaging when rate limits are hit:
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  ⚠️  Rate Limit Exceeded                             │
@@ -91,15 +97,15 @@ The kit is built with modern web standards, includes full TypeScript support, an
 │  You've made too many requests. Please wait a few      │
 │  minutes before trying again.                          │
 │                                                         │
-│  ┌───────────────────────────────────────────────────┐   │
-│  │   [ 🔄 Try Again ]  [ Contact Support ]       │   │
-│  └───────────────────────────────────────────────────┘   │
+│  [ Try Again ]  [ Contact Support ]                   │
 │                                                         │
 │  Request ID: abc123-def456-ghi789                       │
 └─────────────────────────────────────────────────────────┘
 ```
 
 ### Blocked Page (WAF)
+
+Security-focused blocking page with clear guidance:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -109,18 +115,19 @@ The kit is built with modern web standards, includes full TypeScript support, an
 │  from your IP address.                                 │
 │                                                         │
 │  If you believe this is an error, please contact      │
-│  support with the request ID below.                   │
+│  support with request ID below.                   │
 │                                                         │
-│  ┌───────────────────────────────────────────────────┐   │
-│  │              [ Contact Support ]                  │   │
-│  └───────────────────────────────────────────────────┘   │
+│  [ Contact Support ]                                    │
 │                                                         │
 │  Request ID: xyz789-abc123-def456                       │
 │  Reference Code: WAF_BLOCKED                           │
 └─────────────────────────────────────────────────────────┘
 ```
 
-> **Video Demo:** [Watch the 2-minute walkthrough](https://github.com/vinzabe/turnstile-ux-kit/wiki/Video-Demo) showing integration and all themes
+**To see all themes and pages:**
+1. Clone or download this repository
+2. Open `demo.html` in your browser
+3. Interact with the live examples
 
 ## ✨ Features
 

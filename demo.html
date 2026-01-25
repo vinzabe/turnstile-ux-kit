@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnstile UX Kit - Live Demo</title>
+  <link rel="stylesheet" href="dist/styles/tokens.css">
+  <link rel="stylesheet" href="dist/styles/components.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .demo-section {
+      margin-bottom: 40px;
+    }
+    .demo-title {
+      margin: 0 0 20px 0;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-section">
+    <h1 class="demo-title">Turnstile UX Kit - Light Theme</h1>
+    
+    <div class="challenge-container" role="main">
+      <article class="challenge-card">
+        <h1 class="challenge-heading">Verify You're Human</h1>
+        <p class="challenge-text">Please complete the verification below to continue</p>
+        
+        <div id="turnstile-widget" role="region" aria-label="Verification widget" aria-live="polite" style="background: #f8f9fa; border: 2px dashed #6c757d; border-radius: 8px; padding: 20px; text-align: center;">
+          <div style="color: #6c757d;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+            <p style="margin-top: 10px;">Turnstile Widget</p>
+            <p style="font-size: 12px; color: #6c757d;">Replace 'YOUR_SITE_KEY' in source to load actual widget</p>
+          </div>
+        </div>
+        
+        <p class="text-sm text-muted mt-4">
+          <a href="#privacy" class="challenge-link">Privacy Policy</a>
+        </p>
+      </article>
+    </div>
+  </div>
+
+  <div class="demo-section" data-theme="dark" style="background: #1a1a1a; padding: 20px; border-radius: 8px;">
+    <h1 class="demo-title" style="color: #fff;">Turnstile UX Kit - Dark Theme</h1>
+    
+    <div class="challenge-container" role="main">
+      <article class="challenge-card" style="background: #2a2a2a; border-color: #3a3a3a;">
+        <h1 class="challenge-heading" style="color: #fff;">Verify You're Human</h1>
+        <p class="challenge-text" style="color: #b8b8b8;">Please complete the verification below to continue</p>
+        
+        <div id="turnstile-widget-2" role="region" aria-label="Verification widget" aria-live="polite" style="background: #1f1f1f; border: 2px dashed #4a4a4a; border-radius: 8px; padding: 20px; text-align: center;">
+          <div style="color: #b8b8b8;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+            <p style="margin-top: 10px;">Turnstile Widget</p>
+            <p style="font-size: 12px; color: #4a4a4a;">Replace 'YOUR_SITE_KEY' in source to load actual widget</p>
+          </div>
+        </div>
+        
+        <p class="text-sm text-muted mt-4" style="color: #666;">
+          <a href="#privacy" class="challenge-link" style="color: #4a90e2;">Privacy Policy</a>
+        </p>
+      </article>
+    </div>
+  </div>
+
+  <div class="demo-section" style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; padding: 20px;">
+    <h1 class="demo-title">Rate Limited Page</h1>
+    
+    <div class="challenge-container" role="main">
+      <article class="challenge-card" style="background: #fff; border: 2px solid #ffc107;">
+        <h1 class="challenge-heading" style="color: #856404;">
+          ⚠️ Rate Limit Exceeded
+        </h1>
+        <p class="challenge-text" style="color: #856404;">
+          You've made too many requests. Please wait a few minutes before trying again.
+        </p>
+        
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+          <button class="challenge-button" style="background: #ffc107; color: #000; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;">
+            Try Again
+          </button>
+          <button class="challenge-button challenge-button-secondary" style="background: transparent; color: #856404; border: 1px solid #ffc107; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;">
+            Contact Support
+          </button>
+        </div>
+        
+        <p class="text-sm text-muted mt-4" style="color: #6c757d;">
+          Request ID: abc123-def456-ghi789
+        </p>
+      </article>
+    </div>
+  </div>
+
+  <div class="demo-section" style="background: #f8d7da; border: 2px solid #dc3545; border-radius: 8px; padding: 20px;">
+    <h1 class="demo-title">Blocked Page (WAF)</h1>
+    
+    <div class="challenge-container" role="main">
+      <article class="challenge-card" style="background: #fff; border: 2px solid #dc3545;">
+        <h1 class="challenge-heading" style="color: #721c24;">
+          🛡️ Access Blocked
+        </h1>
+        <p class="challenge-text" style="color: #721c24;">
+          Our security systems have detected suspicious activity from your IP address.
+        </p>
+        
+        <p class="challenge-text" style="color: #721c24;">
+          If you believe this is an error, please contact support with request ID below.
+        </p>
+        
+        <div style="margin-top: 20px;">
+          <button class="challenge-button" style="background: #dc3545; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;">
+            Contact Support
+          </button>
+        </div>
+        
+        <div class="mt-4" style="margin-top: 20px;">
+          <p class="text-sm" style="color: #6c757d; margin: 5px 0;">
+            Request ID: xyz789-abc123-def456
+          </p>
+          <p class="text-sm" style="color: #6c757d; margin: 5px 0;">
+            Reference Code: WAF_BLOCKED
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+</body>
+</html>
