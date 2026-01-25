@@ -534,7 +534,7 @@ Initialize a Turnstile challenge widget.
 
 ## 📄 License
 
-[MIT](./LICENSE) - Turnstile UX Kit Team
+[MIT](./LICENSE) - Abejar DevSec Team
 
 ## 🤝 Contributing
 
@@ -550,7 +550,7 @@ Contributions welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guide
 
 <div align="center">
 
-Made with ❤️ by the Turnstile UX Kit Team
+Made with ❤️ by Abejar DevSec Team
 
 [⬆ Back to top](#turnstile-ux-kit)
 
