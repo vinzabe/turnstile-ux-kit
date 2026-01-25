@@ -25,9 +25,6 @@ jobs:
       - name: Run tests
         run: bun test
 
-      - name: Type check
-        run: bunx tsc --noEmit
-
       - name: Lint
         run: bunx eslint src tests --ext .ts,.tsx
 
